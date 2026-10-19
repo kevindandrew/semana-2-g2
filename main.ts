@@ -239,3 +239,9 @@ console.log(
 //    - Si tiene escudo activo
 //    - Si sigue vivo
 //    - Si está en alerta de peligro
+
+/* 
+      ejercico 322
+      dar de comer al perrito
+
+*/
