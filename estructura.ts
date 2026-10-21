@@ -695,3 +695,83 @@ for (let i = 0; i < estudiantes.length; i++) {
     );
   }
 }
+
+/* ---------------FUNCIONES------------- */
+//FUNCION Q  NO RECIBE NI RETORNA NADA
+
+function saludar(): void {
+  console.log("Hola amigos funvaleros");
+}
+
+saludar();
+
+//funcion q recibe un dato pero no retorna nada
+
+function saludar2(nombre: string): void {
+  console.log("hola buenas tardes amig@ " + nombre);
+}
+
+saludar2("Kevin");
+saludar2("Mike");
+saludar2("Jesus");
+saludar2("Sara");
+
+//funcion q no recibe nada pero retorna un valor
+
+function saludito(): string {
+  let mensaje = "buenas tardes estoy retornando un string";
+  return mensaje;
+}
+
+let respuesta = saludito();
+console.log(respuesta);
+
+// funciones que reciben parametros o datos y retornan un valor
+/* 
+function promedios(notas: number[]): number {
+  let res = 0;
+  for (let i = 0; i < notas.length; i++) {
+    res += notas[i];
+  }
+  res /= notas.length;
+  return res;
+}
+
+console.log(promedios([35, 48, 95]));
+console.log(promedios([15, 25, 1, 0]));
+console.log(promedios([99, 85, 100, 90])); */
+/* -----------------------------EJERCICIO PALINDROMOS------------------------------------------ */
+
+let palabra = "Yo hago yoga hoy";
+
+//fase 1 dar la vuelta y crear una copia
+
+function darVuelta(frase: string): string {
+  let volteado = "";
+  for (let i = frase.length - 1; i >= 0; i--) {
+    volteado = volteado + frase[i];
+    console.log(volteado);
+  }
+  return volteado;
+}
+let copia = darVuelta(palabra);
+//fase 2
+function eliminarEspacios(frase: String): string {
+  let sinEspacio = "";
+  for (let i = 0; i < frase.length; i++) {
+    if (frase[i] != " ") {
+      sinEspacio = sinEspacio + frase[i];
+    }
+  }
+  return sinEspacio;
+}
+
+let originalSinespacio = eliminarEspacios(palabra);
+let copiaSinEspacio = eliminarEspacios(copia);
+
+//eliminar mayusculas
+if (originalSinespacio.toLowerCase() === copiaSinEspacio.toLowerCase()) {
+  console.log("es una palabra palindroma");
+} else {
+  console.log("NO ES PALINDROMA");
+}
