@@ -509,9 +509,8 @@ let estudianteEliminado = estudiantesFunval.pop(); //elimina el ultimo elemento 
 let estudianteDelete = estudiantesFunval.shift(); //eliminar el primer elemento de la lista y lo retorna
 
 /* ------------REGLA DE ORO---------------------------- */
-/* 
-  ARRAY QUE VEO ARRAY Q ITERO
-*/
+
+/* ARRAY QUE VEO ARRAY Q ITERO */
 
 let frutas: string[] = [
   "manzana",
@@ -653,6 +652,14 @@ const estudiantes: estudiante[] = [
     celular: 981234567,
     notas: [98, 94, 89, 92],
   },
+  {
+    nombre: "cleto",
+    apPaterno: "Godinez",
+    edad: 20,
+    pais: "Narnia",
+    celular: 981234567,
+    notas: [15, 21, 30, 0, 12],
+  },
 ];
 
 /* 
@@ -663,3 +670,28 @@ const estudiantes: estudiante[] = [
   mateo promedio 65  aprobado
   mariana promedio 35  reprobado
 */
+
+for (let i = 0; i < estudiantes.length; i++) {
+  let notaFinalEstudiante = 0;
+  for (let j = 0; j < estudiantes[i].notas.length; j++) {
+    notaFinalEstudiante += estudiantes[i].notas[j];
+  }
+  notaFinalEstudiante /= estudiantes[i].notas.length;
+  if (notaFinalEstudiante >= 60) {
+    console.log(
+      "el estudiante " +
+        estudiantes[i].nombre +
+        " tiene un promedio de " +
+        notaFinalEstudiante +
+        " por lo tanto esta aprobado",
+    );
+  } else {
+    console.log(
+      "el estudiante " +
+        estudiantes[i].nombre +
+        " tiene un promedio de " +
+        notaFinalEstudiante +
+        " por lo tanto esta reprobado",
+    );
+  }
+}
