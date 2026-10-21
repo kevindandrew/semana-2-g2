@@ -147,6 +147,15 @@ switch (opcion) {
 
 // Tu código aquí:
 
+const edadCliente: number = 17;
+const tieneDocumento: boolean = true;
+
+if (edadCliente >= 18 && tieneDocumento) {
+  console.log("Venta de boleto autorizada");
+} else {
+  console.log("Acceso denegado. Debe ser mayor de edad y portar documento.");
+}
+
 /**
  * EJERCICIO 3: Puerta automática de una tienda según horario (if - else)
  *
@@ -181,6 +190,22 @@ switch (opcion) {
  */
 
 // Tu código aquí:
+const luzSemaforo: string = "verde";
+
+switch (luzSemaforo) {
+  case "verde":
+    console.log("Avance: Vía libre.");
+    break;
+  case "amarillo":
+    console.log("Precaución: Reduzca la velocidad.");
+    break;
+  case "rojo":
+    console.log("Deténgase: Paso bloqueado.");
+    break;
+  default:
+    console.log("Luz no reconocida o semáforo en mantenimiento.");
+    break;
+}
 
 /**
  * EJERCICIO 5: Descuento en la caja de una farmacia (if - else if - else)
@@ -221,6 +246,26 @@ switch (opcion) {
  */
 
 // Tu código aquí:
+
+const categoriaElegida: string = "deportes";
+
+switch (categoriaElegida) {
+  case "noticias":
+    console.log("Sintonizando canal 10: Noticias 24/7");
+    break;
+  case "deportes":
+    console.log("Sintonizando canal 25: Deportes en vivo");
+    break;
+  case "infantil":
+    console.log("Sintonizando canal 40: Dibujos animados");
+    break;
+  case "peliculas":
+    console.log("Sintonizando canal 55: Cine premium");
+    break;
+  default:
+    console.log("Categoría no encontrada en la guía.");
+    break;
+}
 
 // ==========================================
 // NIVEL INTERMEDIO: Condiciones anidadas y lógica combinada
@@ -272,6 +317,30 @@ switch (opcion) {
 
 // Tu código aquí:
 
+const tipoVehiculo: string = "camioneta";
+const horasEstacionado: number = 2;
+const esClienteFrecuente: boolean = false;
+let tarifaPorHora: number = 0;
+
+switch (tipoVehiculo) {
+  case "moto":
+    tarifaPorHora = 5;
+    break;
+  case "auto":
+    tarifaPorHora = 10;
+    break;
+  case "camioneta":
+    tarifaPorHora = 15;
+    break;
+  default:
+    console.log("el tipo de vehiculo no esta registrado en el sistema");
+    break;
+}
+let costoTotal = tarifaPorHora * horasEstacionado;
+if (esClienteFrecuente) {
+  costoTotal -= 5; // costoTotal = costoTotal - 5
+}
+console.log("el costo final a cobrar es de: " + costoTotal);
 /**
  * EJERCICIO 9: Control de equipaje de mano en mostrador de aeropuerto (if anidado / operadores lógicos)
  *
@@ -318,3 +387,94 @@ switch (opcion) {
  */
 
 // Tu código aquí:
+const comboElegido: string = "vegetariano";
+const pedirDelivery: boolean = true;
+const dejarPropina: boolean = true;
+let totalPagar: number = 0;
+
+switch (comboElegido) {
+  case "ejecutivo":
+    totalPagar = 25;
+    if (dejarPropina) {
+      totalPagar = totalPagar * 1.1;
+    }
+    if (pedirDelivery) {
+      totalPagar += 5;
+    }
+
+    console.log("Pedido confirmado. Total final a pagar: " + totalPagar);
+    break;
+  case "vegetariano":
+    totalPagar = 30;
+    if (dejarPropina) {
+      totalPagar = totalPagar * 1.1;
+    }
+    if (pedirDelivery) {
+      totalPagar += 5;
+    }
+    console.log("Pedido confirmado. Total final a pagar: " + totalPagar);
+    break;
+  case "familiar":
+    totalPagar = 55;
+    if (dejarPropina) {
+      totalPagar = totalPagar * 1.1;
+    }
+    if (pedirDelivery) {
+      totalPagar += 5;
+    }
+
+    console.log("Pedido confirmado. Total final a pagar: " + totalPagar);
+    break;
+  default:
+    console.log("combo no disponible en la carta");
+    break;
+}
+
+/* --------------BUCLES---------------------------------- */
+
+/* 
+    while (condicion){
+    codigo q se repetira n cantidad
+    de veces
+    }
+*/
+
+let nombreEstudiante = "Kevin Rodriguez";
+let contador = 0;
+while (contador <= 3) {
+  console.log("hola buenos dias " + nombreEstudiante);
+  contador++;
+}
+
+/* 
+    do{
+        codigo q se ejecutara n cantidad de veces
+        pero si o si almenos 1
+    }while (condicion)
+
+*/
+let superContador = 0;
+
+do {
+  console.log("funval somos los mejores");
+  superContador++; // superContador = superContador +1
+} while (superContador <= 2);
+
+/* 
+    for(condiciones){
+    codigo q se ejecutara n cantida
+    de veces
+    }
+*/
+
+for (let inicio = 0; inicio < 10; inicio++) {
+  console.log("hoy vamos a ver bucles");
+}
+
+/* 
+    ejercicion 1
+    
+    quiero q puedan realizar una calculadora de multiplicacion
+    pero sin  el simbolo *
+    4*5 = 5+5+5+5 o 4+4+4+4+4
+*/
