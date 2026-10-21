@@ -478,3 +478,9 @@ for (let inicio = 0; inicio < 10; inicio++) {
     pero sin  el simbolo *
     4*5 = 5+5+5+5 o 4+4+4+4+4
 */
+
+/* 
+    ejercio 2
+    sacar el factorial de un numero
+    !5 = 1*2*3*4*5
+*/
