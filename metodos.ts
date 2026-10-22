@@ -7,14 +7,14 @@ let estudiantes2: string[] = [
   "Leonardo",
 ];
 /* ----------metodos de arrays---------- */
-estudiantes2.forEach(function (e: string): void {
+/* estudiantes2.forEach(function (e: string): void {
   console.log("Hola buenos dias " + e);
 });
 
 estudiantes2.forEach((e: string): void => {
   console.log("esta funcion flecha " + e);
 });
-
+ */
 /* -----------FORMAS DE ESCRIBIR UNA FUNCION------------ */
 
 function resta(a: number, b: number): void {
@@ -41,23 +41,21 @@ let listaNueva = numeros.map(function (numero: number): string {
 let listaFiltrada = numeros.filter(function (numero: number) {
   return numero % 2 !== 0;
 });
-console.log(listaFiltrada);
+
 /* ----------------find----------------------------- */
 let numeroEncontrado = numeros.find(function (num: number) {
   return num > 5;
 });
 
-console.log(numeroEncontrado);
 /* ----------------FindIndex------------ */
 let indiceEncontrado = numeros.findIndex(function (num: number) {
   return num > 5;
 });
-console.log(indiceEncontrado);
+
 /* -------------SOME------------------ */
 let alguno = numeros.some(function (num: number) {
   return num > 9;
 });
-console.log(alguno);
 
 /* -------------------------EJERCICIOS------------------------------- */
 
@@ -87,6 +85,10 @@ const estudiantesDemo: Estudiante[] = [
   { nombre: "Mariana", nota: 78 },
 ];
 
+estudiantesDemo.forEach(function (e: Estudiante) {
+  console.log(`Alumno: ${e.nombre} | Calificación: ${e.nota}`);
+});
+
 // ----------------------------------------------------------------------------
 // [2] RETO ESTUDIANTE
 // Consigna: Usar forEach para recorrer la lista de productos e imprimir
@@ -98,8 +100,16 @@ const inventario: ProductoStock[] = [
   { id: 102, nombre: "Mouse Pad XL", stock: 3 },
   { id: 103, nombre: "Cable HDMI 2.1", stock: 2 },
 ];
-
 // TU CÓDIGO AQUÍ:
+inventario.forEach(function (pro: ProductoStock, indice: number) {
+  if (pro.stock < 5) {
+    console.log(
+      `ALERTA: El producto ${pro.nombre} tiene stock bajo (${pro.stock} unidades)`,
+    );
+  } else {
+    console.log(`OK: ${pro.nombre} en stock normal`);
+  }
+});
 
 // ----------------------------------------------------------------------------
 // [3] PROFE (DEMO)
@@ -108,6 +118,12 @@ const inventario: ProductoStock[] = [
 const preciosDemo: number[] = [120, 45, 90, 15];
 let totalDemo: number = 0;
 
+preciosDemo.forEach(function (precio: number, indice: number) {
+  totalDemo += precio;
+  console.log(`total actual ${totalDemo}`);
+  console.log(`iteracion ${indice}`);
+});
+console.log(totalDemo);
 // ----------------------------------------------------------------------------
 // [4] RETO ESTUDIANTE
 // Consigna: Dado un array con las horas de estudio semanales de un alumno,
