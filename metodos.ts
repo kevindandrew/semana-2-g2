@@ -495,3 +495,9 @@ let listaDefinitiva = catalogoAlmacen
   );
 
 console.log(listaDefinitiva);
+
+/*  crear un saludo 5 veces */
+
+for (let i = 1; i <= 5; i++) {
+  console.log("hola amigos funvaleros tengan ustedes buenas tardes");
+}
