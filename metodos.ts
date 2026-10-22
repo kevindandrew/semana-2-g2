@@ -429,6 +429,20 @@ const listaPasajerosDemo: Pasajero[] = [
   { asiento: "2B", nombre: "Jorge Flores", confirmado: true },
 ];
 
+let indicePasajero = listaPasajerosDemo.findIndex(function (
+  pasajerito: Pasajero,
+) {
+  return !pasajerito.confirmado;
+});
+
+if (indicePasajero === -1) {
+  console.log("TODOS CONFIRMARON SU BOLETO");
+} else {
+  console.log(
+    `el pasajero ${listaPasajerosDemo[indicePasajero].nombre} no ha confirmado su Boleto`,
+  );
+}
+
 // ----------------------------------------------------------------------------
 // [18] RETO ESTUDIANTE
 // Consigna: En un carrito de compras, encontrar el índice del producto con SKU
@@ -453,6 +467,11 @@ const alumnosCursoDemo: Estudiante[] = [
   { nombre: "Daniela", nota: 88 },
 ];
 
+let estudiantesAprobados = alumnosCursoDemo
+  .filter((e: Estudiante) => e.nota >= 51)
+  .map((e: Estudiante) => e.nombre.toUpperCase());
+
+console.log(estudiantesAprobados);
 // ----------------------------------------------------------------------------
 // [20] RETO ESTUDIANTE - INTEGRADOR: filter + map encadenados
 // Consigna: Dado el array de productos del inventario, encadenar `filter` y `map` para:
@@ -467,3 +486,12 @@ const catalogoAlmacen: ProductoStock[] = [
 ];
 
 // TU CÓDIGO AQUÍ:
+
+let listaDefinitiva = catalogoAlmacen
+  .filter((e: ProductoStock) => e.stock > 0)
+  .map(
+    (prod: ProductoStock) =>
+      `Producto: ${prod.nombre} | Unidades disponibles: ${prod.stock}`,
+  );
+
+console.log(listaDefinitiva);

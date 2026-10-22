@@ -570,7 +570,7 @@ console.log(
     " es: " +
     notaFinal,
 );
-/* -----------------ejercicio---------------------- */
+/* -----------------ejercicio----------------------*/
 const estudiantes: estudiante[] = [
   {
     nombre: "Mateo",
