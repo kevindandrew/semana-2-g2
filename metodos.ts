@@ -171,6 +171,16 @@ const catalogoDemo: ProductoPrecio[] = [
   { nombre: "Webcam 1080p", precioUsd: 60 },
 ];
 
+let objetosImpuestos = catalogoDemo.map(function (prod: ProductoPrecio) {
+  let objetoResultante: ProductoConImpuesto = {
+    nombre: prod.nombre,
+    precioUsd: prod.precioUsd,
+    precioFinal: prod.precioUsd * 1.13,
+  };
+  return objetoResultante;
+});
+
+console.log(objetosImpuestos);
 // ----------------------------------------------------------------------------
 // [6] RETO ESTUDIANTE
 // Consigna: Dado un array de usuarios con nombres separados y edad, usar map
@@ -194,6 +204,21 @@ const archivosDemo: string[] = [
   "index.html",
   "script.ts",
 ];
+
+let extensiones = archivosDemo.map(function (archivo: string) {
+  let extend = false;
+  let extension = "";
+  for (let i = 0; i < archivo.length; i++) {
+    if (extend) {
+      extension += archivo[i];
+    }
+    if (archivo[i] === ".") {
+      extend = true;
+    }
+  }
+  return extension;
+});
+console.log(extensiones);
 
 // ----------------------------------------------------------------------------
 // [8] RETO ESTUDIANTE
@@ -252,7 +277,16 @@ const tareasDemo: Tarea[] = [
     prioridad: "media",
   },
 ];
+//con arrow functions
+let listaResultante = tareasDemo.filter(
+  (task: Tarea) => task.prioridad === "alta" && !task.completada,
+);
+// con funciones normalitas
+let listaResultante2 = tareasDemo.filter(function (task: Tarea) {
+  return task.prioridad === "alta" && !task.completada;
+});
 
+console.log(listaResultante);
 // ----------------------------------------------------------------------------
 // [10] RETO ESTUDIANTE
 // Consigna: Filtrar un array de transacciones financieras para obtener solo
@@ -279,6 +313,12 @@ const palabrasDemo: string[] = [
   "cable",
   "controlador",
 ];
+
+let palabrasFiltradas = palabrasDemo.filter(
+  (palabra: string) =>
+    palabra.length > 6 && (palabra[0] === "c" || palabra[0] === "C"),
+);
+console.log(palabrasFiltradas);
 
 // ----------------------------------------------------------------------------
 // [12] RETO ESTUDIANTE
@@ -324,7 +364,16 @@ const usuariosDemo: UsuarioSistema[] = [
   { id: 3, username: "root_boss", rol: "admin", activo: true },
   { id: 4, username: "visitante_99", rol: "invitado", activo: true },
 ];
+let user = usuariosDemo.find(
+  (usuario: UsuarioSistema) => usuario.rol === "admin" && usuario.activo,
+);
+if (user) {
+  console.log("el uusario existe!!!!!");
+} else {
+  console.log("no existe ningun admin activo");
+}
 
+console.log(user);
 // ----------------------------------------------------------------------------
 // [14] RETO ESTUDIANTE
 // Consigna: Buscar en la flotilla el primer vehículo de marca "Toyota" que
@@ -342,7 +391,8 @@ const flotilla: Vehiculo[] = [
 // [15] PROFE (DEMO)
 // Consigna: Buscar el primer número negativo dentro de un array de saldos.
 const saldosDemo: number[] = [1500, 320, 85, -240, 600, -15];
-
+let negativo = saldosDemo.find((saldito: number) => saldito < 0);
+console.log(negativo);
 // ----------------------------------------------------------------------------
 // [16] RETO ESTUDIANTE
 // Consigna: Dado un array de puntajes de un juego, encontrar el primer puntaje
