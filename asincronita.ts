@@ -59,7 +59,7 @@ console.log(traerData()); */
 function traerData(): Promise<Estudiante[]> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const conexionExitosa = true;
+      const conexionExitosa = false;
       if (conexionExitosa) {
         resolve(listaEstudiantesFunvaleros);
       } else {
@@ -70,10 +70,25 @@ function traerData(): Promise<Estudiante[]> {
 }
 
 /* -----------------CONSUMIR PROMESA-------------- */
-traerData()
+/* traerData()
   .then((response) => {
     console.log(response);
   })
   .catch((err) => {
     console.log(err);
   });
+ */
+/* ---------------async y await---------------------- */
+async function ejecutarConsulta(): Promise<void> {
+  try {
+    //si la promesa se cumple
+    console.log("Cargando datos.....");
+    const listaFunval = await traerData();
+    console.log(listaFunval);
+  } catch (error) {
+    //si la promesa falla
+    console.log(error);
+  }
+}
+
+ejecutarConsulta();
